@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Login Example</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form method="POST" action="{{ url_for('login') }}">
+      <input type="text" name="user_id" placeholder="User ID">
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>

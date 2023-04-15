@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flask Form Example</title>
-    <!-- add bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Flask Login Example</title>
   </head>
   <body>
-    <h1>Hello, {{ name }}!</h1>
-    <form method="POST" action="/">
-      {{ form.csrf_token }}
-      {{ form.name.label }} {{ form.name }}
-      {{ form.submit }}
-    </form>
-  
-    <!-- create a table with the user id and name -->
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for user in users %}
-        <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
+    <h1>Welcome!</h1>
+    {% if current_user.is_authenticated %}
+      <p>You are logged in as {{ current_user.id }}</p>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a>
+    {% endif %}
   </body>
 </html>
