@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Form Example</title>
+    <!-- add bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <h1>Enter your name:</h1>
+    <form method="POST" action="/">
+      {{ form.csrf_token }}
+      {{ form.name.label }} {{ form.name }}
+      {{ form.submit }}
+    </form>
+  </body>
+</html>
